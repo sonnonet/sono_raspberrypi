@@ -35,3 +35,11 @@ export PYTHONPATH=$PYTHONPATH:$TOSROOT/support/sdk/python
 echo "setting up TinyOS 2.1.2 on source path $TOSROOT"
 ```
 
+step4. add env
+```
+vim ~/.bashrc
+````
+
+```
+source ~/tinyos.env
+```
