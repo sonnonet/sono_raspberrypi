@@ -4,4 +4,4 @@ wget https://raw.githubusercontent.com/321core/STALK-INSTALL/master/install-rasp
 sh install-raspberryPi.sh
 ```
 
-https://www.apache.org/dist/commons/configuration/binaries/
+
