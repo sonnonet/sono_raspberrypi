@@ -97,5 +97,12 @@ $ sudo cp <find-path>/libgetenv.so /usr/lib
 $ motelist
 $ sudo chmod 777 /dev/ttyUSB0
 ```
+# How to install influxdb 1.2.0 on raspberry pi
+
+```
+$ wget https://dl.influxdata.com/influxdb/releases/influxdb_1.2.0_armhf.deb
+$ sudo dpkg -i influxdb_1.2.0_armhf.deb
+$ sudo service influxd start
+```
 
 
