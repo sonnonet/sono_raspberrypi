@@ -12,50 +12,90 @@
     software ver : Java SDK8 , Pyhton 3.5.2, Tinyos Version 2.1.2
     
     
-step1. install 
+step1. install packge
 ```
-sudo apt-get install vim emacs gperf bison flex git build-essential python2.7-dev automakeavarice avr-libc 
-msp430-libc avrdude binutils-avr binutils-msp430 gcc-avr gcc-msp430 gdbavrsubversion graphviz
-python-docutils checkinstall
+sudo apt-get install vim git openjdk-8-jdk python python-serial python-usb automake emacs bison flex gperf gcc-msp430
+```
+step2. install python3
 
 ```
-step2. reboot
+sudo apt-get install libbz2-dev liblzma-dev libsqlite3-dev libncurses5-dev libgdbm-dev zlib1g-dev 
+libreadline-dev libssl-dev tk-dev
 
 ```
-sudo reboot
+
+``` $ mkdir ~/python3
+    $ cd ~/python3
+    $ wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz
+    $ tar xvf Python-3.5.2.tar.xz
+```    
+   
+``` $ cd python-3.5.2
+    $ sudo ./configure
+    $ sudo make
+    $ sudo make install
+```    
+step3. install nesC
+```
+$ git clone git://github.com/tinyos/nesc.git
 ```
 
-step3. make env
+``` $ cd nesc
+    $ sudo ./Bootstrap
+    $ sudo ./configure
+    $ sudo make
+    $ sudo make install
+```
 
+step4. install tinyos
 ```
-vim ~/tinyos.env
+$ git clone git://github.com/tinyos/tinyos-main.git
+```
+
+``` $ cd tinyos-main/tools
+    $ sudo ./Bootstrap
+    $ sudo ./configure
+    $ sudo make
+    $ sudo make install
 ```
 ```
-TOSROOT=/opt/tinyos-2.xexport 
-TOSDIR=$TOSROOT/tosexport 
+vim ~/tinyos.sh
+```
+```
+TOSROOT=/opt/tinyos-2.x
+export TOSDIR=$TOSROOT/tosexport 
 CLASSPATH=$TOSROOT/support/sdk/java/tinyos.jar:$CLASSPATH
 export CLASSPATH=$TOSROOT/support/sdk/java:$CLASSPATH
 export CLASSPATH=.:$CLASSPATH
 export MAKERULES=$TOSROOT/support/make/Makerules
 export PYTHONPATH=$PYTHONPATH:$TOSROOT/support/sdk/python
 
-echo "setting up TinyOS 2.1.2 on source path $TOSROOT"
+echo "setting up TinyOS on source path $TOSROOT"
 ```
 
-step4. add env
+step5. authority change and env add
 ```
-vim ~/.bashrc
+$ sudo chmod 777 tinyos-main
 ````
 
 ```
-source ~/tinyos.env
+$ vim ~/.bashrc
+you have to add end about : source ~/tinyos.env
+$ source ~/.bashrc
 ```
-step5. Copy of Jin File
+
+step6. Copy of Jin File
 ```
-$ cd ~
-$ git clone https://github.com/sinbinet/raspberrypi.git
-$ cd  rapsberrypi/tinyos
+$ find -name libtoscomm.so
+$ find -name libgetenv.so
 ````
-$ sudo mv libtiscomm.so /usr/lib
-$ sudo mv libgetenv.so /usr/lib
-````
+```
+$ sudo cp <find-path>/libtoscomm.so /usr/lib
+$ sudo cp <find-path>/libgetenv.so /usr/lib
+```
+```
+$ motelist
+$ sudo chmod 777 /dev/ttyUSB0
+```
+
+
