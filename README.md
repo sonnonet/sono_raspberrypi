@@ -3,8 +3,15 @@
 * tinyos install
 
 
-#Tinyos install on RaspberryPi-Rasbian
+# Tinyos install on RaspberryPi-Rasbian
 
+## install enviroment
+
+    hardware : Raspberry Pi 3 Model B
+       OS    : Raspbian Jessie Lite, 2017-03-02 Release
+    software ver : Java SDK8 , Pyhton 3.5.2, Tinyos Version 2.1.2
+    
+    
 step1. install 
 ```
 sudo apt-get install vim emacs gperf bison flex git build-essential python2.7-dev automakeavarice avr-libc 
@@ -43,3 +50,12 @@ vim ~/.bashrc
 ```
 source ~/tinyos.env
 ```
+step5. Copy of Jin File
+```
+$ cd ~
+$ git clone https://github.com/sinbinet/raspberrypi.git
+$ cd  rapsberrypi/tinyos
+````
+$ sudo mv libtiscomm.so /usr/lib
+$ sudo mv libgetenv.so /usr/lib
+````
