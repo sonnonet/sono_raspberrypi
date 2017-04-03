@@ -105,4 +105,67 @@ $ sudo dpkg -i influxdb_1.2.0_armhf.deb
 $ sudo service influxd start
 ```
 
+# How to Setting TSDB on raspberry Pi
 
+1. step 자바설정
+```
+    $ which java
+    ex) /usr/bin/java 
+    $ vim $HOME/.bashrc 
+     add end of bottom
+   JAVA_HOME =/usr/
+   export PATH=$PATH:$JAVA_HOME/bin
+   export PATH=$PATH:$HADOOP_HOME/bin
+   
+   $ source ~/.bashrc
+```
+
+2. Hbase install
+```
+   $ cd /usr/local
+   $ sudo mkdir hadoop
+   $ cd hadoop
+   $ sudo wget http://www.apache.org/dist/hbase/1.3.0/hbase-1.3.0-bin.tar.gz
+   $ sudo tar xvf hbase-1.3.0-bin.tar.gz
+   $ cd ..
+   //$ chown -R pi:pi hadoop
+   $ vim conf/hadoop-env.sh
+     add end of bottom
+     export JAVA_HOME=/usr/
+   $ vim conf/hbase-site.xml
+   <configureation> </configuration> 
+   DIRECTORY -> run of hbase directoy ex) /tmp/hbase-
+    <property>         
+        <name>hbase.rootdir</name>        
+        <value>file:///DIRECTORY/hbase</value>       
+    </property>       
+    <property>         
+        <name>hbase.zookeeper.property.dataDir</name>         
+        <value>/DIRECTORY/zookeeper</value>        
+    </property>
+```
+3. hbase run
+```
+    $ sh /usr/local/hadoop/habase-1.3.0/bin/start-hbase.sh
+     
+```
+4. GnuPlot install
+```
+    $ cd /usr/local
+    $ sudo apt-get install gcc libgd2-xpm-dev 
+    $ sudo wget http://sourceforge.net/projects/gnuplot/files/gnuplot/5.0.6/gnuplot-5.0.6.tar.gz
+    $ sudo chown -R pi:pi gnuplot-5.0.6
+    $ sudo ./configure
+    $ sudo make install
+    $ sudo apt-get install dh-autoreconf
+    $ sudo apt-get install gnuplot
+``` 
+5. OpenTSDB install
+``` 
+    $ cd /usr/local
+    $ sudo git clone git://github.com/OpenTSDB/opentsdb.git
+    $ sudo chown -R pi:pi opentsdb
+    $ cd opentsdb
+    $ ./build.sh
+    $ sudo env COMPRESSION=NONE HBASE_HOME=/usr/local/hadoop/hbase-1.3.0 ./src/crete_table.sh
+```sudo
