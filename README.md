@@ -134,7 +134,7 @@ $ sudo service influxd start
      export JAVA_HOME=/usr/
    $ vim conf/hbase-site.xml
    <configureation> </configuration> 
-   DIRECTORY -> run of hbase directoy ex) /tmp/hbase-
+   DIRECTORY -> run of hbase directoy ex) /tmp/hbase-version name
     <property>         
         <name>hbase.rootdir</name>        
         <value>file:///DIRECTORY/hbase</value>       
@@ -168,4 +168,4 @@ $ sudo service influxd start
     $ cd opentsdb
     $ ./build.sh
     $ sudo env COMPRESSION=NONE HBASE_HOME=/usr/local/hadoop/hbase-1.3.0 ./src/crete_table.sh
-```sudo
+```
