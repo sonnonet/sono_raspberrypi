@@ -113,7 +113,7 @@ $ sudo service influxd start
     ex) /usr/bin/java 
     $ vim $HOME/.bashrc 
      add end of bottom
-   JAVA_HOME =/usr/
+   JAVA_HOME=/usr/
    export PATH=$PATH:$JAVA_HOME/bin
    export PATH=$PATH:$HADOOP_HOME/bin
    
