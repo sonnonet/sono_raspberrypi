@@ -1,6 +1,5 @@
 # how to install sTalk
-#Author : Jeonghoon.Kang (http://github.com/jeonghoonkang)
-
+# Author : Jeonghoon.Kang (http://github.com/jeonghoonkang)
  sudo apt-get -y install subversion
  sudo apt-get -y install htop
  sudo apt-get -y install screen
