@@ -1,5 +1,6 @@
 # how to install sTalk
 # Author : Jeonghoon.Kang (http://github.com/jeonghoonkang)
+```
  sudo apt-get -y install subversion
  sudo apt-get -y install htop
  sudo apt-get -y install screen
@@ -39,11 +40,6 @@
  sudo pip install httplib
  sudo pip install urllib3
  sudo pip install utils
-
-
-```
-wget https://raw.githubusercontent.com/321core/STALK-INSTALL/master/install-raspberryPi.sh
-sh install-raspberryPi.sh
 ```
 
 
