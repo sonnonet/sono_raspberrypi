@@ -12,7 +12,7 @@
   
 ## Python API
   - The Basic API
-  ```
+  ```python3
 # Global variables to quickly reference to groups of LEDs or individual ones.
 # The LED* ones can only be used on their own.
 LED_ALL = (1, 2, 3, 4, 5, 6, 7, 8)
@@ -55,6 +55,33 @@ get_led_dim()
 set_led_dim(leds, dim)
   ```
 
-  
+  - Special Effects
+```python3
+# Global variables to indicate clockwise and counterclockwise LEDs rotations sequences.
+ROT_CW = 0
+ROT_CCW = 1
+
+# This method flashes all LEDs at an interval for a number of times.
+# repetitions indicates how many flashes will be done and interval represents the time between on and off.
+flash(repetitions, interval)
+
+# This method flashes white LEDs top to bottom, left to right or from opposed sides.
+# repetitions indicates how many flashes will be done and interval represents the time between on and off. Orientation defaults to 'v'.
+# Allowed values are: 'v', 'h' and 'x'.
+alt_flash(repetitions, interval, orientation)
+
+# This method flashes one white LED after another as to give the impression of a rotating sequence.
+# Using the global variables ROT_CW for clockwise and ROT_CCW for counterclockwise.
+# repetitions indicates how many complete sequences will be done, delay represents the time between LEDs subsequently turning on and rotation set the direction.
+night_rider(repetitions, delay, rotation)
+
+# This method changes the gain on all LEDs from min (0b0000) to max (0b1111)
+# repetitions indicates how many cycles will be done and speed represents how quickly each cycle will be completed by specifying a time between each change of gain.
+beacon(repetitions, speed)
+
+# This method changes the dimming on white LEDs from min (0x00) to max (0x32)
+# repetitions indicates how many cycles will be done and speed represents how quickly each cycle will be completed by specifying a time between each change of dimming level.
+dimmer(repetitions, speed)
+```
 
   
