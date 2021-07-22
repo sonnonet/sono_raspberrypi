@@ -24,6 +24,7 @@ import time
 import board
 import busio
 import adafruit_adxl34x
+from influxdb import InfluxDBClient as influxdb
 
 i2c = busio.I2C(board.SCL, board.SDA)
 accelerometer = adafruit_adxl34x.ADXL345(i2c)
@@ -43,7 +44,7 @@ while True:
     }]
     client = None
     try:
-        client = influxdb('localhost',8086,'root','root','WaterMeter')
+        client = influxdb('localhost',8086,'root','root','ADXL')
     except Exception as e:
         print("Exception " + str(e))
     if client is not None:
